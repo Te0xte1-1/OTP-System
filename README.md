@@ -1,2 +1,2 @@
-# personal-portfolio
-My personal portfolio is giving a brief description of my skills
+# OTP-System
+My OTP micro System is giving a brief description of my skills
