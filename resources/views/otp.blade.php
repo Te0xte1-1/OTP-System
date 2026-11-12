@@ -1,21 +1,6 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Modern Tailwind Website</title>
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-    <img src="{{ asset('images/logo.png') }}" alt="Logo">
-    <script src="{{ asset('js/main.js') }}"></script>
-    <script src="{{ asset('https://cdn.tailwindcss.com') }}"></script>
-
-
-</head>
-
-<body class="bg-[#E6E6E6]">
+@extends('layout.header')
+@section('title', 'OTP Page')
+@section('content')
     <div class="p-3">
         <div class="bg-[#FFFFFF] w-80 p-5 border border-1xl border-gray-300 shadow-xl rounded-xl">
             <h4 class="text-gray-900 text-center capitalize font-semibold">
@@ -67,7 +52,6 @@
         </div>
     </div>
 
-    <nav id="navigation"></nav>
-</body>
 
-</html>
+@section('layout.footer')
+@endsection

@@ -1,17 +1,6 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Modern Tailwind Website</title>
-
-    <script src="{{ url('https://cdn.tailwindcss.com') }}"></script>
-</head>
-
-<body class="bg-[#E6E6E6]">
+@extends('layout.header')
+@section('title', 'Sign up Page')
+@section('content')
     <div class="p-3">
         <div class="bg-[#FFFFFF] w-80 p-5 border border-1xl border-gray-300 shadow-xl rounded-xl">
             <h4 class="text-gray-900 text-center capitalize font-semibold">
@@ -62,6 +51,4 @@
             </ul>
         </div>
     </div>
-</body>
-
-</html>
+    @extends('layout.footer')
