@@ -17,3 +17,6 @@ Route::get('/sign_in', function () {
 Route::get('/sign_up', function () {
     return view('sign_up');
 });
+Route::post('/sign_in_store', function () {
+    return "store";
+});
