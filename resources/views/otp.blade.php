@@ -11,15 +11,13 @@
                     welcome back To OTP
                 </h4>
                 <p class="text-black text-center capitalize text-sm whitespace-normal tracking-wide mt-2 leading-6">
-                    Your OTP Code ()
+                    Your OTP Code
                 </p>
+                <br>
+                <span class="text-center block font-bold capitalize text-indigo-600">
+                    {{ $otp_code }}
+                </span>
                 <br />
-                <div class="group-label">
-                    <label for="email" class="font-semibold text-sm text-gray-900 capitalize mr-4">Email</label>
-                    <br />
-                    <input type="email" name="email" id="email" placeholder="Enter Your Email"
-                        class="p-2 text-sm rounded-xl border border-gray-200 text-gray-900 bg-gray-50 w-full focus:outline-gray-400 focus:bg-white" />
-                </div>
                 <div class="my-3">
 
                     <button

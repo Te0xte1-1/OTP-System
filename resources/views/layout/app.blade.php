@@ -36,11 +36,7 @@
                     class="hidden sm:block text-gray-700 hover:text-indigo-600 font-medium text-sm transition">
                     Sign Up
                 </a>
-                <!-- Contact -->
-                <a href="{{ url('/otp') }}"
-                    class="hidden sm:block text-gray-700 hover:text-indigo-600 font-medium text-sm transition">
-                    OTP
-                </a>
+
 
             </div>
 
