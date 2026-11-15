@@ -8,7 +8,10 @@ use Illuminate\Support\Facades\Hash;
 
 class OtpController extends Controller
 {
-
+    public function about_me()
+    {
+        return view('about_me');
+    }
     public function send(Request $request)
     {
         $request->validate([

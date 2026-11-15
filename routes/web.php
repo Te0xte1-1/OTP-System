@@ -8,6 +8,7 @@ Route::get('/', function () {
 });
 
 
+Route::get('/about_me', [OtpController::class, 'about_me'])->name('about_me');
 Route::get('/sign_in', [OtpController::class, 'sign_in'])->name('sign_in');
 Route::get('/sign_up', [OtpController::class, 'sign_up'])->name('sign_up');
 Route::get('/forget', [OtpController::class, 'forget'])->name('forget');

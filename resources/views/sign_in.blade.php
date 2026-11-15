@@ -1,71 +1,206 @@
 @extends('layout.app')
+
 @section('title', 'Sign in Page')
+
 @section('content')
 
-    <div class="p-1 flex items-center justify-center ">
-        <div class="bg-[#FFFFFF] w-full max-w-sm p-4 border  border-gray-300 shadow-xl rounded-xl">
-            <h4 class="text-gray-700 text-center capitalize font-bold font-sans text-xl ">
-                welcome back
-            </h4>
-            <p class="text-black text-center capitalize text-sm whitespace-normal tracking-wide mt-2 ">
-                access your orders wishlist and exclusive by logging in
-            </p>
-            <form action="" method="post">
+    <div class="min-h-screen flex items-center justify-center px-4">
+
+        <div class="bg-white w-full max-w-md p-6 sm:p-8 border border-slate-200 shadow-lg rounded-2xl">
+
+            {{-- Header --}}
+            <div class="text-center mb-5">
+
+                <div
+                    class="w-14 h-14 bg-indigo-100 text-indigo-700 rounded-2xl
+                        flex items-center justify-center mx-auto mb-4">
+
+                    <i class="fa fa-user text-2xl"></i>
+
+                </div>
+
+                <h2 class="text-2xl font-bold text-slate-800">
+                    Welcome Back!
+                </h2>
+
+                <p class="text-sm text-slate-500 mt-2">
+                    Access your orders, wishlist and exclusive offers.
+                </p>
+
+            </div>
+
+            {{-- Validation Errors --}}
+            @if ($errors->any())
+                <div
+                    class="bg-red-50 border border-red-100 text-red-600
+                        p-3 rounded-xl mb-2 text-sm">
+
+                    @foreach ($errors->all() as $error)
+                        <p>{{ $error }}</p>
+                    @endforeach
+
+                </div>
+            @endif
+
+            {{-- Success Message --}}
+            @if (session('success'))
+                <div
+                    class="bg-green-50 border border-green-100 text-green-600
+                        p-3 rounded-xl mb-5 text-sm">
+                    {{ session('success') }}
+                </div>
+            @endif
+
+            {{-- Login Form --}}
+            <form action="" method="POST" class="space-y-2">
+
                 @csrf
-                {{-- Email input --}}
-                <div class="mb-3">
-                    <label for="email"class="font-semibold text-sm text-gray-900 capitalize mr-4">Email</label>
 
-                    <input type="email" name="email" id="email" placeholder="Enter Your Email"
-                        class="px-3 py-2 text-sm rounded-xl border border-gray-200 text-gray-900 bg-gray-50 w-full focus:outline-gray-400 focus:bg-white" />
-                </div>
+                {{-- Email --}}
+                <div>
 
-                {{-- Password input --}}
-                <div class="mb-2">
-                    <label for="password" class="font-semibold text-sm text-gray-900 capitalize mr-4">password</label>
+                    <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">
 
-                    <input type="password" name="password" id="password" placeholder="Enter Your Password"
-                        class="px-3 py-2 text-sm rounded-xl border border-gray-200 text-gray-900 bg-gray-50 w-full focus:outline-gray-400 focus:bg-white" />
-                </div>
+                        Email Address
 
-                <!-- Remember & Forgot Password -->
-                <div class="flex items-center justify-between mb-3 text-sm">
-
-                    <label for="remember" class="flex items-center gap-2 text-gray-600">
-                        <input type="checkbox" name="remember" id="remember" class="accent-indigo-600" />
-                        Remember Me
                     </label>
 
-                    <a href="{{ route('forget') }}" class="text-indigo-600 hover:text-indigo-800 transition">
+                    <div class="relative">
+
+                        <i
+                            class="fa fa-envelope absolute left-4 top-1/2
+                              -translate-y-1/2 text-slate-400"></i>
+
+                        <input type="email" name="email" id="email" value="{{ old('email') }}"
+                            placeholder="example@email.com" required
+                            class="w-full pl-11 pr-4 py-3 text-sm rounded-xl
+                               border border-slate-200 bg-slate-50
+                               text-slate-800 outline-none
+                               focus:border-indigo-500 focus:ring-4
+                               focus:ring-indigo-100 transition">
+
+                    </div>
+
+                </div>
+
+                {{-- Password --}}
+                <div>
+
+                    <label for="password" class="block text-sm font-semibold text-slate-700 mb-2">
+
+                        Password
+
+                    </label>
+
+                    <div class="relative">
+
+                        <i
+                            class="fa fa-lock absolute left-4 top-1/2
+                              -translate-y-1/2 text-slate-400"></i>
+
+                        <input type="password" name="password" id="password" placeholder="Enter your password" required
+                            class="w-full pl-11 pr-4 py-3 text-sm rounded-xl
+                               border border-slate-200 bg-slate-50
+                               text-slate-800 outline-none
+                               focus:border-indigo-500 focus:ring-4
+                               focus:ring-indigo-100 transition">
+
+                    </div>
+
+                </div>
+
+                {{-- Remember & Forgot Password --}}
+                <div class="flex items-center justify-between text-sm">
+
+                    <label class="flex items-center gap-2 text-slate-600 cursor-pointer">
+
+                        <input type="checkbox" name="remember" id="remember" value="1"
+                            class="w-4 h-4 accent-indigo-600 rounded">
+
+                        Remember Me
+
+                    </label>
+
+                    <a href="{{ route('forget') }}" class="text-indigo-600 font-medium hover:text-indigo-800 transition">
+
                         Forgot Password?
+
                     </a>
 
                 </div>
-                {{-- Submit button --}}
+
+                {{-- Submit Button --}}
                 <button type="submit"
-                    class="bg-indigo-700 text-white py-1.5 w-full cursor-pointer font-bold rounded-xl hover:bg-indigo-800 duration-300">
-                    Submit
+                    class="w-full bg-indigo-600 hover:bg-indigo-700
+                       text-white font-semibold py-3 rounded-xl
+                       shadow-md shadow-indigo-100
+                       hover:shadow-lg transition duration-300 cursor-pointer">
+
+                    Sign In
+
+                    <i class="fa fa-arrow-right ml-2"></i>
+
                 </button>
+
             </form>
 
-            <!-- Divider -->
-            <div class="flex items-center gap-3 my-2">
-                <div class="flex-1 border-t border-gray-200"></div>
-                <span class="text-gray-400 text-sm">OR</span>
-                <div class="flex-1 border-t border-gray-200"></div>
+            {{-- Divider --}}
+            <div class="flex items-center gap-4 my-6">
+
+                <div class="flex-1 border-t border-slate-200"></div>
+
+                <span class="text-xs text-slate-400 font-medium">
+                    OR CONTINUE WITH
+                </span>
+
+                <div class="flex-1 border-t border-slate-200"></div>
+
             </div>
-            <!-- Social Login -->
-            <div class="">
+
+            {{-- Social Login --}}
+            <div class="grid grid-cols-2 gap-3">
+
                 <a href="#"
-                    class="block text-center bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold text-sm m-2 p-1 rounded-lg transition">
-                    Continue with Google
+                    class="flex items-center justify-center gap-2
+                      border border-slate-200 rounded-xl py-3
+                      text-sm font-semibold text-slate-700
+                      hover:bg-slate-50 transition">
+
+                    <i class="fab fa-google text-red-500"></i>
+
+                    Google
+
                 </a>
+
                 <a href="#"
-                    class="block text-center bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold text-sm m-2 p-1 rounded-lg transition">
-                    Continue with Apple
+                    class="flex items-center justify-center gap-2
+                      border border-slate-200 rounded-xl py-3
+                      text-sm font-semibold text-slate-700
+                      hover:bg-slate-50 transition">
+
+                    <i class="fab fa-apple text-black"></i>
+
+                    Apple
+
                 </a>
+
             </div>
+
+            {{-- Register Link --}}
+            <p class="text-center text-sm text-slate-500 mt-7">
+
+                Don't have an account?
+
+                <a href="{{ route('sign_up') }}" class="text-indigo-600 font-bold hover:underline">
+
+                    Create Account
+
+                </a>
+
+            </p>
+
         </div>
+
     </div>
 
 @endsection

@@ -4,13 +4,12 @@
 
 @section('content')
 
-    <div class="min-h-screen bg-slate-50 flex items-center justify-center px-4 py-10">
+    <div class="min-h-screen flex items-center justify-center ">
 
         <div class="bg-white w-full max-w-xl p-6 sm:p-8 border border-slate-200 shadow-lg rounded-2xl">
 
             {{-- Header --}}
             <div class="text-center mb-8">
-
                 <div
                     class="w-14 h-14 bg-indigo-100 text-indigo-700 rounded-2xl
                         flex items-center justify-center mx-auto mb-4">
@@ -34,15 +33,12 @@
 
                 {{-- First Name & Last Name --}}
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
                     {{-- First Name --}}
                     <div>
                         <label for="first_name" class="block text-sm font-semibold text-slate-700 mb-2">
                             First Name
                         </label>
-
                         <div class="relative">
-
                             <i
                                 class="fa fa-user absolute left-4 top-1/2
                                   -translate-y-1/2 text-slate-400"></i>
@@ -56,7 +52,6 @@
 
                         </div>
                     </div>
-
                     {{-- Last Name --}}
                     <div>
                         <label for="last_name" class="block text-sm font-semibold text-slate-700 mb-2">
@@ -78,18 +73,15 @@
 
                         </div>
                     </div>
-
                 </div>
 
                 {{-- Email --}}
                 <div>
-
                     <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">
                         Email Address
                     </label>
 
                     <div class="relative">
-
                         <i
                             class="fa fa-envelope absolute left-4 top-1/2
                               -translate-y-1/2 text-slate-400"></i>
@@ -100,9 +92,7 @@
                                text-slate-800 outline-none
                                focus:border-indigo-500 focus:ring-4
                                focus:ring-indigo-100 transition">
-
                     </div>
-
                 </div>
 
                 {{-- Password --}}
@@ -165,10 +155,6 @@
 
                     </label>
 
-                    <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transition">
-                        Forgot Password?
-                    </a>
-
                 </div>
 
                 {{-- Submit --}}
@@ -176,7 +162,7 @@
                     class="w-full bg-indigo-600 hover:bg-indigo-700
                        text-white font-semibold py-3 rounded-xl
                        shadow-md shadow-indigo-100
-                       hover:shadow-lg transition duration-300">
+                       hover:shadow-lg transition duration-300 cursor-pointer">
 
                     Create Account
 
@@ -186,48 +172,8 @@
 
             </form>
 
-            {{-- Divider --}}
-            <div class="flex items-center gap-4 my-6">
-
-                <div class="flex-1 border-t border-slate-200"></div>
-
-                <span class="text-xs text-slate-400 font-medium">
-                    OR CONTINUE WITH
-                </span>
-
-                <div class="flex-1 border-t border-slate-200"></div>
-
-            </div>
-
-            {{-- Social Login --}}
-            <div class="grid grid-cols-2 gap-3">
-
-                <a href="#"
-                    class="flex items-center justify-center gap-2
-                      border border-slate-200 rounded-xl py-3
-                      text-sm font-semibold text-slate-700
-                      hover:bg-slate-50 transition">
-
-                    <i class="fab fa-google text-red-500"></i>
-                    Google
-
-                </a>
-
-                <a href="#"
-                    class="flex items-center justify-center gap-2
-                      border border-slate-200 rounded-xl py-3
-                      text-sm font-semibold text-slate-700
-                      hover:bg-slate-50 transition">
-
-                    <i class="fab fa-apple text-black"></i>
-                    Apple
-
-                </a>
-
-            </div>
-
             {{-- Login Link --}}
-            <p class="text-center text-sm text-slate-500 mt-7">
+            <p class="text-center text-sm text-slate-500 mt-4">
 
                 Already have an account?
 
