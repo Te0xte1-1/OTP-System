@@ -7,11 +7,11 @@
 
         <div class="p-3 flex justify-center items-center">
             <div class="bg-[#FFFFFF] w-80 p-5 border border-1xl border-gray-300 shadow-xl rounded-xl">
-                <h4 class="text-gray-900 text-center capitalize font-semibold">
-                    welcome back To OTP
+                <h4 class="text-gray-900 text-center capitalize font-semibold border-b-2 border-indigo-300 ">
+                   OTP Page
                 </h4>
                 <p class="text-black text-center capitalize text-sm whitespace-normal tracking-wide mt-2 leading-6">
-                    Your OTP Code
+                    OTP generated successfully
                 </p>
                 <br>
                 <span class="text-center block font-bold capitalize text-indigo-600">

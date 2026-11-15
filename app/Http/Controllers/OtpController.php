@@ -8,13 +8,14 @@ use Illuminate\Support\Facades\Hash;
 
 class OtpController extends Controller
 {
-    public function send(Request $request)
+
+    public function otp(request $request)
     {
         $request->validate([
             'phone' => 'required|string|max:20',
         ]);
 
-        $code = (string) random_int(100000, 999999);
+        $code = random_int(100000, 999999);
 
         Otp::where('phone', $request->phone)
             ->where('used', false)
@@ -25,13 +26,23 @@ class OtpController extends Controller
             'code_hash' => Hash::make($code),
             'expires_at' => now()->addMinutes(5),
         ]);
-        // للتجربة فقط، لا تعرض الرمز في الإنتاج
-        return response()->json([
-            'message' => 'OTP generated successfully',
-            'otp' => $code,
-        ]);
+
+
+        return view('otp.otp', compact('code'));
     }
-    public function verify(Request $request)
+    public function sign_in()
+    {
+        return view('sign_in');
+    }
+    public function sign_up()
+    {
+        return view('sign_up');
+    }
+    public function forget()
+    {
+        return view('otp.forget');
+    }
+    public function verfication(request $request)
     {
         $request->validate([
             'phone' => 'required|string|max:20',
@@ -59,30 +70,7 @@ class OtpController extends Controller
 
         $otp->update(['used' => true]);
 
-        return response()->json([
-            'message' => 'Phone verified successfully'
-        ]);
-    }
 
-    public function otp(request $request)
-    {
-        $otp_code = rand(100000, 999999);
-        return view('otp', compact('otp_code'));
-    }
-    public function sign_in()
-    {
-        return view('sign_in');
-    }
-    public function sign_up()
-    {
-        return view('sign_up');
-    }
-    public function forget()
-    {
-        return view('forget');
-    }
-    public function verfication()
-    {
-        return view('verfication');
+        return view('otp.verfication');
     }
 }

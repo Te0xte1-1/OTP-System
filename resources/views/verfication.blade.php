@@ -1,5 +1,5 @@
 @extends('layout.app')
-@section('title', 'verfication Page')
+@section('title', 'Verfication Page')
 @section('content')
 
     <body class="min-h-screen bg-gray-100">
@@ -7,14 +7,27 @@
 
         <div class="p-3 flex justify-center items-center">
             <div class="bg-[#FFFFFF] w-80 p-5 border border-1xl border-gray-300 shadow-xl rounded-xl">
-                <h4 class="text-gray-900 text-center capitalize font-semibold">
-                    welcome back To OTP
+                <h4 class="text-gray-900 text-center capitalize font-semibold border-b-2 border-indigo-300 ">
+                    OTP Page
                 </h4>
                 <p class="text-black text-center capitalize text-sm whitespace-normal tracking-wide mt-2 leading-6">
-                    verfication done successfully You can go To login
+                    OTP generated successfully
                 </p>
+                <br>
+                <span class="text-center block font-bold capitalize text-indigo-600">
+                    {{ $otp_code }}
+                </span>
                 <br />
+                <div class="my-3">
 
+                    <button
+                        class="bg-indigo-700 text-white p-1.5 w-full cursor-pointer font-bold rounded-xl border border-gray-500 border-1xl hover:bg-indigo-800 hover:text-gray-200 hover:border-indigo-900">
+                        Submit
+                    </button>
+                </div>
             </div>
         </div>
     @endsection
+<h2>Verification Successful!</h2>
+
+<p>Your email has been verified successfully.</p>

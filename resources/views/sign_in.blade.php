@@ -36,7 +36,7 @@
                         Remember Me
                     </label>
 
-                    <a href="{{ url('/forget') }}" class="text-indigo-600 hover:text-indigo-800 transition">
+                    <a href="{{ route('forget') }}" class="text-indigo-600 hover:text-indigo-800 transition">
                         Forgot Password?
                     </a>
 
