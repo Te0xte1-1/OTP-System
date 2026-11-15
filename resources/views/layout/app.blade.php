@@ -54,7 +54,7 @@
 
                     </a>
 
-                    <a href="{{ route('/about_me') }}"
+                    <a href="{{ route('about_me') }}"
                         class="px-4 py-2 rounded-lg text-sm font-semibold
                           text-slate-600 hover:text-indigo-600
                           hover:bg-indigo-50 transition">
@@ -64,7 +64,7 @@
 
                     </a>
 
-                    <a href="{{ route('/sign_in') }}"
+                    <a href="{{ route('sign_in') }}"
                         class="px-4 py-2 rounded-lg text-sm font-semibold
                           text-slate-600 hover:text-indigo-600
                           hover:bg-indigo-50 transition">
