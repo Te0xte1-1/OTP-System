@@ -9,13 +9,14 @@ use Illuminate\Support\Facades\Hash;
 class OtpController extends Controller
 {
 
-    public function otp(request $request)
+    public function send(Request $request)
     {
         $request->validate([
             'phone' => 'required|string|max:20',
         ]);
 
-        $code = random_int(100000, 999999);
+        $otp_code = random_int(100000, 999999);
+        $phone = $request->phone;
 
         Otp::where('phone', $request->phone)
             ->where('used', false)
@@ -23,12 +24,33 @@ class OtpController extends Controller
 
         Otp::create([
             'phone' => $request->phone,
-            'code_hash' => Hash::make($code),
+            'code_hash' => Hash::make($otp_code),
             'expires_at' => now()->addMinutes(5),
         ]);
 
 
-        return view('otp.otp', compact('code'));
+        return view('otp.otp', compact('otp_code', 'phone'));
+    }
+    public function verfication(Request $request)
+    {
+
+        $request->validate([
+            'phone' => 'required|string|max:20',
+            'otp_code' => 'required|digits:6',
+        ]);
+
+        $otp = Otp::where('phone', $request->phone)->where('used', false)->latest()->first();
+
+
+        if (!$otp || $otp->expires_at->isPast() || !Hash::check($request->otp_code, $otp->code_hash)) {
+
+            return response()->json(['message' => 'Invalid or expired OTP'], 422);
+        }
+
+        $otp->update(['used' => true]);
+
+
+        return view('otp.success');
     }
     public function sign_in()
     {
@@ -41,36 +63,5 @@ class OtpController extends Controller
     public function forget()
     {
         return view('otp.forget');
-    }
-    public function verfication(request $request)
-    {
-        $request->validate([
-            'phone' => 'required|string|max:20',
-            'code' => 'required|digits:6',
-        ]);
-
-        $otp = Otp::where('phone', $request->phone)
-            ->where('used', false)
-            ->latest()
-            ->first();
-
-        if (
-            !$otp ||
-            $otp->expires_at->isPast() ||
-            !Hash::check($request->code, $otp->code_hash)
-        ) {
-
-            return response()->json(
-                [
-                    'message' => 'Invalid or expired OTP'
-                ],
-                422
-            );
-        }
-
-        $otp->update(['used' => true]);
-
-
-        return view('otp.verfication');
     }
 }

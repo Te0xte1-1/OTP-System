@@ -8,7 +8,7 @@
         <div class="p-3 flex justify-center items-center">
             <div class="bg-[#FFFFFF] w-80 p-5 border border-1xl border-gray-300 shadow-xl rounded-xl">
                 <h4 class="text-gray-900 text-center capitalize font-semibold border-b-2 border-indigo-300 ">
-                   OTP Page
+                    OTP Page
                 </h4>
                 <p class="text-black text-center capitalize text-sm whitespace-normal tracking-wide mt-2 leading-6">
                     OTP generated successfully
@@ -17,14 +17,19 @@
                 <span class="text-center block font-bold capitalize text-indigo-600">
                     {{ $otp_code }}
                 </span>
-                <br />
-                <div class="my-3">
+                <form action="{{ route('verfication') }}" method="post">
 
-                    <button
-                        class="bg-indigo-700 text-white p-1.5 w-full cursor-pointer font-bold rounded-xl border border-gray-500 border-1xl hover:bg-indigo-800 hover:text-gray-200 hover:border-indigo-900">
-                        Submit
-                    </button>
-                </div>
+                    <input type="hidden" name="phone" value="{{ $phone }}">
+                    <input type="hidden" name="otp_code" value="{{ $otp_code }}">
+                    <br />
+                    <div class="my-3">
+
+                        <button
+                            class="bg-indigo-700 text-white p-1.5 w-full cursor-pointer font-bold rounded-xl border border-gray-500 border-1xl hover:bg-indigo-800 hover:text-gray-200 hover:border-indigo-900">
+                            Submit
+                        </button>
+                </form>
             </div>
+        </div>
         </div>
     @endsection

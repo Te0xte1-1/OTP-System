@@ -11,7 +11,7 @@ class Otp extends Model
         'phone',
         'code_hash',
         'expires_at',
-        'used'
+        'used',
     ];
 
     protected $casts = [

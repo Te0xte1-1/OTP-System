@@ -1,86 +1,244 @@
 @extends('layout.app')
+
 @section('title', 'Sign up Page')
+
 @section('content')
 
-    <div class="p-1 flex items-center justify-center ">
-        <div class="bg-[#FFFFFF] w-full max-w-sm p-4 border -translate-y-4   border-gray-300 shadow-xl rounded-xl">
-            <h4 class="text-gray-700 text-center capitalize font-bold text-xl ">
-                Create new an account
-            </h4>
-            <p class="text-black text-center capitalize text-sm whitespace-normal tracking-wide mt-2 ">
-                access your orders wishlist and exclusive by logging in
-            </p>
-            <form action="" method="post">
+    <div class="min-h-screen bg-slate-50 flex items-center justify-center px-4 py-10">
+
+        <div class="bg-white w-full max-w-xl p-6 sm:p-8 border border-slate-200 shadow-lg rounded-2xl">
+
+            {{-- Header --}}
+            <div class="text-center mb-8">
+
+                <div
+                    class="w-14 h-14 bg-indigo-100 text-indigo-700 rounded-2xl
+                        flex items-center justify-center mx-auto mb-4">
+                    <i class="fa fa-user-plus text-2xl"></i>
+                </div>
+
+                <h2 class="text-2xl font-bold text-slate-800">
+                    Create Your Account
+                </h2>
+
+                <p class="text-sm text-slate-500 mt-2">
+                    Join us and enjoy a better shopping experience.
+                </p>
+
+            </div>
+
+            {{-- Form --}}
+            <form action="" method="POST" class="space-y-5">
+
                 @csrf
-                {{-- Full Name input --}}
-                <div class="mb-3">
-                    <i class="fa fa-user"></i> <label
-                        for="Full Name"class="font-semibold text-sm text-gray-900 capitalize mr-4">Full Name</label>
 
-                    <input type="text" name="Full Name" id="Full Name" placeholder="Enter Your Full Name"
-                        class="px-3 py-2 text-sm rounded-xl border border-gray-200 text-gray-900 bg-gray-50 w-full focus:outline-gray-400 focus:bg-white" />
+                {{-- First Name & Last Name --}}
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                    {{-- First Name --}}
+                    <div>
+                        <label for="first_name" class="block text-sm font-semibold text-slate-700 mb-2">
+                            First Name
+                        </label>
+
+                        <div class="relative">
+
+                            <i
+                                class="fa fa-user absolute left-4 top-1/2
+                                  -translate-y-1/2 text-slate-400"></i>
+
+                            <input type="text" name="first_name" id="first_name" placeholder="Enter first name"
+                                class="w-full pl-11 pr-4 py-3 text-sm rounded-xl
+                                   border border-slate-200 bg-slate-50
+                                   text-slate-800 outline-none
+                                   focus:border-indigo-500 focus:ring-4
+                                   focus:ring-indigo-100 transition">
+
+                        </div>
+                    </div>
+
+                    {{-- Last Name --}}
+                    <div>
+                        <label for="last_name" class="block text-sm font-semibold text-slate-700 mb-2">
+                            Last Name
+                        </label>
+
+                        <div class="relative">
+
+                            <i
+                                class="fa fa-user absolute left-4 top-1/2
+                                  -translate-y-1/2 text-slate-400"></i>
+
+                            <input type="text" name="last_name" id="last_name" placeholder="Enter last name"
+                                class="w-full pl-11 pr-4 py-3 text-sm rounded-xl
+                                   border border-slate-200 bg-slate-50
+                                   text-slate-800 outline-none
+                                   focus:border-indigo-500 focus:ring-4
+                                   focus:ring-indigo-100 transition">
+
+                        </div>
+                    </div>
+
                 </div>
-                {{-- Username input --}}
-                <div class="mb-3">
-                    <label for="username"class="font-semibold text-sm text-gray-900 capitalize mr-4">username</label>
 
-                    <input type="text" name="username" id="username" placeholder="Enter Your username"
-                        class="px-3 py-2 text-sm rounded-xl border border-gray-200 text-gray-900 bg-gray-50 w-full focus:outline-gray-400 focus:bg-white" />
-                </div>
-                {{-- Email input --}}
-                <div class="mb-3">
-                    <label for="email"class="font-semibold text-sm text-gray-900 capitalize mr-4">Email</label>
+                {{-- Email --}}
+                <div>
 
-                    <input type="email" name="email" id="email" placeholder="Enter Your Email"
-                        class="px-3 py-2 text-sm rounded-xl border border-gray-200 text-gray-900 bg-gray-50 w-full focus:outline-gray-400 focus:bg-white" />
-                </div>
-
-                {{-- Password input --}}
-                <div class="mb-2">
-                    <label for="password" class="font-semibold text-sm text-gray-900 capitalize mr-4">password</label>
-
-                    <input type="password" name="password" id="password" placeholder="Enter Your Password"
-                        class="px-3 py-2 text-sm rounded-xl border border-gray-200 text-gray-900 bg-gray-50 w-full focus:outline-gray-400 focus:bg-white" />
-                </div>
-
-                <!-- Remember & Forgot Password -->
-                <div class="flex items-center justify-between mb-3 text-sm">
-
-                    <label for="remember" class="flex items-center gap-2 text-gray-600">
-                        <input type="checkbox" name="remember" id="remember" class="accent-indigo-600" />
-                        Remember Me
+                    <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">
+                        Email Address
                     </label>
 
-                    <a href="#" class="text-indigo-600 hover:text-indigo-800 cursor-pointer transition">
+                    <div class="relative">
+
+                        <i
+                            class="fa fa-envelope absolute left-4 top-1/2
+                              -translate-y-1/2 text-slate-400"></i>
+
+                        <input type="email" name="email" id="email" placeholder="example@email.com"
+                            class="w-full pl-11 pr-4 py-3 text-sm rounded-xl
+                               border border-slate-200 bg-slate-50
+                               text-slate-800 outline-none
+                               focus:border-indigo-500 focus:ring-4
+                               focus:ring-indigo-100 transition">
+
+                    </div>
+
+                </div>
+
+                {{-- Password --}}
+                <div>
+
+                    <label for="password" class="block text-sm font-semibold text-slate-700 mb-2">
+                        Password
+                    </label>
+
+                    <div class="relative">
+
+                        <i
+                            class="fa fa-lock absolute left-4 top-1/2
+                              -translate-y-1/2 text-slate-400"></i>
+
+                        <input type="password" name="password" id="password" placeholder="Enter your password"
+                            class="w-full pl-11 pr-4 py-3 text-sm rounded-xl
+                               border border-slate-200 bg-slate-50
+                               text-slate-800 outline-none
+                               focus:border-indigo-500 focus:ring-4
+                               focus:ring-indigo-100 transition">
+
+                    </div>
+
+                </div>
+
+                {{-- Confirm Password --}}
+                <div>
+
+                    <label for="password_confirmation" class="block text-sm font-semibold text-slate-700 mb-2">
+                        Confirm Password
+                    </label>
+
+                    <div class="relative">
+
+                        <i
+                            class="fa fa-shield-alt absolute left-4 top-1/2
+                              -translate-y-1/2 text-slate-400"></i>
+
+                        <input type="password" name="password_confirmation" id="password_confirmation"
+                            placeholder="Confirm your password"
+                            class="w-full pl-11 pr-4 py-3 text-sm rounded-xl
+                               border border-slate-200 bg-slate-50
+                               text-slate-800 outline-none
+                               focus:border-indigo-500 focus:ring-4
+                               focus:ring-indigo-100 transition">
+
+                    </div>
+
+                </div>
+
+                {{-- Remember Me --}}
+                <div class="flex items-center justify-between text-sm">
+
+                    <label class="flex items-center gap-2 text-slate-600 cursor-pointer">
+
+                        <input type="checkbox" name="remember" class="w-4 h-4 accent-indigo-600 rounded">
+
+                        Remember Me
+
+                    </label>
+
+                    <a href="#" class="text-indigo-600 hover:text-indigo-800 font-medium transition">
                         Forgot Password?
                     </a>
 
                 </div>
-                {{-- Submit button --}}
+
+                {{-- Submit --}}
                 <button type="submit"
-                    class="bg-indigo-700 text-white py-1.5 w-full font-bold rounded-lg hover:bg-indigo-800 duration-300">
-                    Submit
+                    class="w-full bg-indigo-600 hover:bg-indigo-700
+                       text-white font-semibold py-3 rounded-xl
+                       shadow-md shadow-indigo-100
+                       hover:shadow-lg transition duration-300">
+
+                    Create Account
+
+                    <i class="fa fa-arrow-right ml-2"></i>
+
                 </button>
+
             </form>
 
-            <!-- Divider -->
-            <div class="flex items-center gap-3 my-2">
-                <div class="flex-1 border-t border-gray-200"></div>
-                <span class="text-gray-400 text-sm">OR</span>
-                <div class="flex-1 border-t border-gray-200"></div>
+            {{-- Divider --}}
+            <div class="flex items-center gap-4 my-6">
+
+                <div class="flex-1 border-t border-slate-200"></div>
+
+                <span class="text-xs text-slate-400 font-medium">
+                    OR CONTINUE WITH
+                </span>
+
+                <div class="flex-1 border-t border-slate-200"></div>
+
             </div>
-            <!-- Social Login -->
-            <div class="">
+
+            {{-- Social Login --}}
+            <div class="grid grid-cols-2 gap-3">
+
                 <a href="#"
-                    class="block text-center bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold text-sm m-2 p-1 rounded-lg transition">
-                    Continue with Google
+                    class="flex items-center justify-center gap-2
+                      border border-slate-200 rounded-xl py-3
+                      text-sm font-semibold text-slate-700
+                      hover:bg-slate-50 transition">
+
+                    <i class="fab fa-google text-red-500"></i>
+                    Google
+
                 </a>
+
                 <a href="#"
-                    class="block text-center bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold text-sm m-2 p-1 rounded-lg transition">
-                    Continue with Apple
+                    class="flex items-center justify-center gap-2
+                      border border-slate-200 rounded-xl py-3
+                      text-sm font-semibold text-slate-700
+                      hover:bg-slate-50 transition">
+
+                    <i class="fab fa-apple text-black"></i>
+                    Apple
+
                 </a>
+
             </div>
+
+            {{-- Login Link --}}
+            <p class="text-center text-sm text-slate-500 mt-7">
+
+                Already have an account?
+
+                <a href="{{ route('sign_in') }}" class="text-indigo-600 font-bold hover:underline">
+                    Sign In
+                </a>
+
+            </p>
+
         </div>
+
     </div>
 
 @endsection
